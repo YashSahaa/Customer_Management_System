@@ -19,7 +19,12 @@ const SignupSignin = () => {
     setLoading(true);
     if (admin.name !== "" && admin.email !== "" && admin.password !== "" && confirmPassword !== "") {
       if (admin.password === confirmPassword) {
-        AdminService.signUp(admin)
+        AdminService.signUp({
+          
+          emailId: admin.email,
+          name : admin.name,
+          password: admin.password
+        })
           .then(() => {
             setLoading(false);
             setAdmin({

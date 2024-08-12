@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import CustomerService from '../services/CustomerService';
 import Customer from './Customer';
+import { IoIosSearch } from "react-icons/io";
 
 const CustomerList = () => {
     const navigate = useNavigate();
@@ -36,8 +37,13 @@ const CustomerList = () => {
     
     return (
     <div className='container mx-auto my-8 px-3 '>
-        <div className='h-12'>
+        <div className='h-12 input-box'>
             <button onClick={()=>navigate("/addCustomer")} className='rounded bg-slate-600 text-white px-6 py-2 font-semibold'>AddCustomer</button>
+            <div className='border flex rounded text-white px-6 py-2 font-semibold inputSearch'>
+                <IoIosSearch className='text-black size-6 mx-1'/>
+                <input placeholder='Search' />
+            </div>
+            <button className='rounded bg-slate-600 text-white px-6 py-2 font-semibold'>Sync</button>
         </div>
         <div className='flex shadow border-b'>
             <table className='min-w-full '>

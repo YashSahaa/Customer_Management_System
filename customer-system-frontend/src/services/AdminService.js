@@ -3,7 +3,7 @@ import axios from "axios";
 const ADMIN_API_BASE_URL = "http://localhost:8080/admin";
 class AdminService {
   signUp(admin) {
-    return axios.post(ADMIN_API_BASE_URL + "/signup", admin);
+    return axios.post(`${ADMIN_API_BASE_URL}/signup`, admin);
   }
 
   login(admin) {

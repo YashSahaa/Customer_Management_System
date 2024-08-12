@@ -89,3 +89,15 @@
   color: #2970ff !important;
   transition: all 0.2s;
 }
+
+.input-box{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.inputSearch{
+  width: 70%;
+}
