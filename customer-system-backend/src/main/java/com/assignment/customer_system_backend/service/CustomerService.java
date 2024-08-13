@@ -58,4 +58,19 @@ public class CustomerService {
         customerRepo.save(customerEntity);
         return customer;
     }
+
+    public List<Customer> getCustomerSearch(String type, String search) {
+        List<CustomerEntity> customerEntityList = customerRepo.searchByKeyword(search);
+        return customerEntityList.stream().filter(customer -> {
+            if ("firstName".equals(type)) return customer.getFirstName().toLowerCase().contains(search.toLowerCase());
+            if ("emailId".equals(type)) return customer.getEmailId().toLowerCase().contains(search.toLowerCase());
+            if ("city".equals(type)) return customer.getCity().toLowerCase().contains(search.toLowerCase());
+            if ("state".equals(type)) return customer.getState().toLowerCase().contains(search.toLowerCase());
+            return false;
+        }).map(customerEntity -> {
+            Customer customer = new Customer();
+            BeanUtils.copyProperties(customerEntity, customer);
+            return customer;
+        }).collect(Collectors.toList());
+    }
 }

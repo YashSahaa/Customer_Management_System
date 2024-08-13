@@ -2,6 +2,7 @@ package com.assignment.customer_system_backend.controller;
 
 import com.assignment.customer_system_backend.entity.CustomerEntity;
 import com.assignment.customer_system_backend.model.Customer;
+import com.assignment.customer_system_backend.model.SearchDTO;
 import com.assignment.customer_system_backend.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -50,5 +51,10 @@ public class CustomerController {
     public ResponseEntity<Customer> updateCustomer(@PathVariable Long id,@RequestBody Customer customer){
         customer = customerService.updateCustomer(id,customer);
         return ResponseEntity.ok(customer);
+    }
+
+    @PostMapping("/getsearchcustomers")
+    public List<Customer> getCustomerSearch(@RequestBody SearchDTO attribute){
+        return customerService.getCustomerSearch(attribute.getType(), attribute.getSearch());
     }
 }

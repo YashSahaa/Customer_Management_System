@@ -98,6 +98,15 @@
   width: 100%;
 }
 
+.input-bar{
+  width: 100rem;
+}
+
 .inputSearch{
-  width: 70%;
+  width: 95%;
+  background-color: transparent;
+  border: none;
+}
+.inputSearch:focus{
+  outline: none;
 }

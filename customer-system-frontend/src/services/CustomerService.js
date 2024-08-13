@@ -21,6 +21,10 @@ class CustomerService{
     updateCustomer(customer,id){
         return axios.put(CUSTOMER_API_BASE_URL + "/updatecustomer/" + id,customer);
     }
+
+    searchCustomer(attri){
+        return axios.post(CUSTOMER_API_BASE_URL + "/getsearchcustomers",attri);
+    }
 }
 
 export default new CustomerService();
